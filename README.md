@@ -1,14 +1,16 @@
-# MAT-apps — QS desk stack
+# MAT-apps — paper equity & options desk
 
-Personal trading **desk OS**: market data → strategy (Intent) → pre-trade gates → paper execution → audit log. Not a broker, not live trading in this repo — paper only through `qs go`.
+Python libraries for a small **stock / options** desk: pull market data, turn a signal into an intent, run pre-trade risk checks, paper-fill, and keep an audit trail. One operator door: `python -m qs`. **Paper only** in this public tree — no live broker keys, no session journals.
+
+This is Phase A of a broader markets stack. Later work can hang a crypto markets UI (charts, perps, prediction books) on the same desk ideas — risk gates, kill switch, human confirm before send. That UI stays private for now; MAT here is the equity/options library and console.
 
 | Repo | Role |
 |------|------|
-| [QSConnect](https://github.com/Autolab350/QSConnect) | Market data (`marketdata` package) |
-| [QSResearch](https://github.com/Autolab350/QSResearch) | Signal → `Intent` (`strategy` package) |
-| [Omega](https://github.com/Autolab350/Omega) | `Order`, GateChain, paper `ExecutionClient` |
-| [QSWorkflow](https://github.com/Autolab350/QSWorkflow) | Operator door: `python -m qs` |
+| [QSConnect](https://github.com/Autolab350/QSConnect) | Market data (`marketdata`) |
+| [QSResearch](https://github.com/Autolab350/QSResearch) | Signal → `Intent` (`strategy`) |
+| [Omega](https://github.com/Autolab350/Omega) | Orders, GateChain risk, paper execution |
+| [QSWorkflow](https://github.com/Autolab350/QSWorkflow) | `python -m qs` console + STORE |
 
-Clone all four into one folder, then install from [QSWorkflow/README.md](https://github.com/Autolab350/QSWorkflow/blob/main/README.md).
+Clone the four repos next to each other, then follow [QSWorkflow/README.md](https://github.com/Autolab350/QSWorkflow/blob/main/README.md).
 
-Agent and path law: [MAP.md](./MAP.md).
+Layout law for agents: [MAP.md](./MAP.md).
